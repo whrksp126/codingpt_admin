@@ -1,0 +1,24 @@
+# codingpt-admin.ghmate.com → codingpt_admin_prod:80 (Vite 어드민, 독립 프로젝트)
+# 백엔드와는 공개 HTTPS(codingpt-back.ghmate.com)로만 통신.
+services:
+  admin:
+    container_name: codingpt_admin_prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:                           # 빌드 타임(Vite)
+        VITE_BACKEND_URL: https://codingpt-back.ghmate.com
+        VITE_DEBUG: "false"
+        NODE_ENV: production
+    expose:
+      - "80"
+    networks:
+      - codingpt_admin_prod
+      - nginx_proxy
+    restart: unless-stopped
+
+networks:
+  codingpt_admin_prod:
+    driver: bridge
+  nginx_proxy:
+    external: true

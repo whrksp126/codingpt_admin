@@ -1,0 +1,21 @@
+# dev-codingpt-admin.ghmate.com → codingpt_admin_dev:3300 (Vite 어드민, 독립 프로젝트)
+services:
+  admin:
+    container_name: codingpt_admin_dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    expose:
+      - "3300"
+    env_file:
+      - .env.dev
+    networks:
+      - codingpt_admin_dev
+      - nginx_proxy
+    restart: unless-stopped
+
+networks:
+  codingpt_admin_dev:
+    driver: bridge
+  nginx_proxy:
+    external: true

@@ -1,0 +1,22 @@
+# codingpt_admin (Vite 어드민) — 독립 프로젝트. 로컬 개발용.
+# 백엔드와는 HTTP(.env.local VITE_BACKEND_URL)로만 통신 — codingpt_service 와 분리됨.
+services:
+  admin:
+    container_name: codingpt_admin_local
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - "3300:3300"  # vite.config.js server.port=3300
+    env_file:
+      - .env.local
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - codingpt_admin_local
+    restart: unless-stopped
+
+networks:
+  codingpt_admin_local:
+    driver: bridge

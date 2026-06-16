@@ -1,0 +1,23 @@
+# stg-codingpt-admin.ghmate.com → codingpt_admin_stg:80 (Vite 어드민, 독립 프로젝트)
+services:
+  admin:
+    container_name: codingpt_admin_stg
+    build:
+      context: .
+      dockerfile: Dockerfile.stg
+      args:                           # 빌드 타임(Vite)
+        VITE_BACKEND_URL: https://stg-codingpt-back.ghmate.com
+        VITE_DEBUG: "false"
+        NODE_ENV: staging
+    expose:
+      - "80"
+    networks:
+      - codingpt_admin_stg
+      - nginx_proxy
+    restart: unless-stopped
+
+networks:
+  codingpt_admin_stg:
+    driver: bridge
+  nginx_proxy:
+    external: true
