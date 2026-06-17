@@ -367,6 +367,18 @@ const AdminLessonList = () => {
             </div>
             <div className="flex items-center gap-2">
               <Link
+                to="/admin/plans"
+                className="rounded-md border border-cyan-600 bg-cyan-500 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-cyan-600"
+              >
+                구독 플랜
+              </Link>
+              <Link
+                to="/admin/usage"
+                className="rounded-md border border-slate-200 px-2.5 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+              >
+                사용량 분석
+              </Link>
+              <Link
                 to="/admin/github-repos"
                 className="rounded-md border border-slate-800 bg-slate-800 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-slate-900"
               >

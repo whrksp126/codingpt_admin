@@ -15,6 +15,8 @@ import TtsLibrary from './pages/TtsLibrary';
 import AdminLessonList from './pages/AdminLessonList';
 import LessonEditor from './pages/LessonEditor';
 import AdminGithubRepos from './pages/AdminGithubRepos';
+import AdminPlans from './pages/AdminPlans';
+import AdminUsage from './pages/AdminUsage';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/admin/lessons" element={<AdminLessonList />} />
         <Route path="/admin/lessons/:id/edit" element={<LessonEditor />} />
         <Route path="/admin/github-repos" element={<AdminGithubRepos />} />
+        <Route path="/admin/plans" element={<AdminPlans />} />
+        <Route path="/admin/usage" element={<AdminUsage />} />
         <Route path="/code/:id" element={<Code />} />
         <Route path="/execute" element={<Execute />} />
         <Route path="/tts" element={<TTS />} />
