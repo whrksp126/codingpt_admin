@@ -5,7 +5,6 @@ on:
     branches:
       - main
       - dev
-      - staging
   pull_request:
     branches:
       - main
@@ -62,8 +61,6 @@ jobs:
             echo "tag=latest" >> $GITHUB_OUTPUT
           elif [ "${{ github.ref }}" == "refs/heads/dev" ]; then
             echo "tag=dev" >> $GITHUB_OUTPUT
-          elif [ "${{ github.ref }}" == "refs/heads/staging" ]; then
-            echo "tag=staging" >> $GITHUB_OUTPUT
           else
             echo "tag=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
           fi
@@ -103,9 +100,6 @@ jobs:
           elif [ "${{ github.ref }}" == "refs/heads/dev" ]; then
             echo "tag=dev" >> $GITHUB_OUTPUT
             echo "service_name=codingpt_admin_dev" >> $GITHUB_OUTPUT
-          elif [ "${{ github.ref }}" == "refs/heads/staging" ]; then
-            echo "tag=staging" >> $GITHUB_OUTPUT
-            echo "service_name=codingpt_admin_stg" >> $GITHUB_OUTPUT
           else
             echo "tag=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
             echo "service_name=codingpt_admin" >> $GITHUB_OUTPUT

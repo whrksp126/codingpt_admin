@@ -1,5 +1,5 @@
 #!/bin/bash
-# 사용법: ./deploy.sh [dev|stg|prod]
+# 사용법: ./deploy.sh [dev|prod]
 # codingpt_admin (Vite 어드민) — 독립 배포. 백엔드와는 공개 HTTPS로만 통신.
 ENV=$1
 SSH_KEY="$HOME/.ssh/ghmate_server"
@@ -10,16 +10,12 @@ case $ENV in
     COMPOSE_FILE="docker-compose.dev.yml"
     PROJECT_NAME="codingpt_admin_dev"
     ;;
-  stg)
-    COMPOSE_FILE="docker-compose.stg.yml"
-    PROJECT_NAME="codingpt_admin_stg"
-    ;;
   prod)
     COMPOSE_FILE="docker-compose.prod.yml"
     PROJECT_NAME="codingpt_admin_prod"
     ;;
   *)
-    echo "사용법: ./deploy.sh [dev|stg|prod]"
+    echo "사용법: ./deploy.sh [dev|prod]"
     exit 1
     ;;
 esac

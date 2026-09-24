@@ -6,7 +6,6 @@ React 18 + Vite 어드민 웹앱 (구 `codingpt_service/codingpt_front` → 2026
 ## 배포
 ```bash
 ./deploy.sh dev   # /srv/projects/codingpt_admin, docker-compose.dev.yml
-./deploy.sh stg
 ./deploy.sh prod
 ```
 홈서버 nginx vhost(`codingpt-admin.ghmate.com` → `codingpt_admin_prod:80`)는 GHMATE_SERVER_GUIDE 패턴.
@@ -40,4 +39,4 @@ React 18 + Vite 어드민 웹앱 (구 `codingpt_service/codingpt_front` → 2026
 
 - 개발 서버 포트: **3300** (`vite.config.js`)
 - 환경변수: `VITE_BACKEND_URL` 등 `VITE_` 접두사
-- 환경 파일: `.env.local`, `.env.dev`, `.env.stg`, `.env`
+- 환경 파일: `.env.local`, `.env.dev`, `.env`
